@@ -1,1 +1,0 @@
-# nest-proof-of-concept
