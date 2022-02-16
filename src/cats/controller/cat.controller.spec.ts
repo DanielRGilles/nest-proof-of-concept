@@ -16,6 +16,22 @@ describe('CatController', () => {
         description: 'fluffy',
         createdAt: '2019-10-31T12:34'
       }
+    } ),
+    findAll: jest.fn(catPost =>{
+      return [
+         {
+        id: 1,
+        name: 'kitty',
+        description: 'fluffy',
+        createdAt: '2019-10-31T12:34'
+      },
+      {
+        id: 2,
+        name: 'skitty',
+        description: 'fruffy',
+        createdAt: '2018-10-31T12:34'
+      },
+    ]
     } )
   }
 
@@ -43,15 +59,20 @@ describe('CatController', () => {
     });
 
 
-    // it('get all cats', () => {
-    //   expect(controller.getEm()).toEqual({
-    //     id: expect.any(Number),
-    //     name: 'kitty',
-    //     description:'fluffy',
-    //     createdAt: expect.any(Date)
-    //   });
-    // });
-    // TypeError: this.catService.getAll is not a function
+    it('get all cats', async () => {
+      expect(await controller.findAll()).toEqual(expect.arrayContaining([{
+        id: expect.any(Number),
+        name: 'kitty',
+        description:'fluffy',
+        createdAt: expect.any(String)
+      },
+      {
+        id: 2,
+        name: 'skitty',
+        description: 'fruffy',
+        createdAt: '2018-10-31T12:34'
+      }]));
+    });
     
     
   });

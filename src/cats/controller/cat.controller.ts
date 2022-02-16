@@ -12,8 +12,8 @@ export class CatController {
         return this.catService.create(catPost)
     }
     @Get()
-    async getEm() : Promise<Observable<CatPost[]>>  {
-        return this.catService.getAll();
+    async findAll() : Promise<Observable<CatPost[]>>  {
+        return this.catService.findAll();
     }
     @Get(':id')
     async getWithId(

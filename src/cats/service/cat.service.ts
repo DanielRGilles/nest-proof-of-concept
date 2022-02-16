@@ -18,7 +18,7 @@ export class CatService {
     getByid(id: number):Observable<CatPost> {
         return from(this.catPostRepository.findOne(id));
     }
-    getAll(): Observable<CatPost[]> {
+    findAll(): Observable<CatPost[]> {
         return from(this.catPostRepository.find());
     }
     updateCat(id: number, catPost: CatPost): Observable<UpdateResult> {
