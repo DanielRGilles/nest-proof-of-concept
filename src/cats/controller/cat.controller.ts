@@ -8,8 +8,8 @@ import { CatService } from '../service/cat.service';
 export class CatController {
     constructor(private catService: CatService) {}
     @Post()
-    async insert( @Body() post: CatPost): Promise<Observable<CatPost>> {
-        return this.catService.createPost(post)
+    async insert( @Body() catPost: CatPost): Promise<Observable<CatPost>> {
+        return this.catService.createPost(catPost)
     }
     @Get()
     async getEm() : Promise<Observable<CatPost[]>>  {
