@@ -12,7 +12,7 @@ export class CatService {
         private readonly catPostRepository: Repository<CatPostEntity>
     ) {}
 
-    createPost(catPost: CatPost) : Observable<CatPost> {
+    create(catPost: CatPost) : Observable<CatPost> {
         return from(this.catPostRepository.save(catPost));
     }
     getByid(id: number):Observable<CatPost> {

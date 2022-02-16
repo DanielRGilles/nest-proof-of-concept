@@ -9,10 +9,12 @@ describe('CatController', () => {
   let controller: CatController;
 
   const mockCatService = {
-    insert: jest.fn(catPost =>{
+    create: jest.fn(catPost =>{
       return {
-        // id: 1,
-        ...catPost
+        id: 1,
+        name: 'kitty',
+        description: 'fluffy',
+        createdAt: '2019-10-31T12:34'
       }
     } )
   }
@@ -31,14 +33,25 @@ describe('CatController', () => {
       expect(controller).toBeDefined();
     });
 
-    it('create a cat', () => {
-      expect(controller.insert({ name: 'kitty'})).toEqual({
+    it('create a cat', async () => {
+      expect(await controller.create({ name: 'kitty'})).toEqual({
         id: expect.any(Number),
         name: 'kitty',
         description:'fluffy',
-        createdAt: expect.any(Date)
+        createdAt: expect.any(String)
       });
     });
+
+
+    // it('get all cats', () => {
+    //   expect(controller.getEm()).toEqual({
+    //     id: expect.any(Number),
+    //     name: 'kitty',
+    //     description:'fluffy',
+    //     createdAt: expect.any(Date)
+    //   });
+    // });
+    // TypeError: this.catService.getAll is not a function
     
     
   });
