@@ -8,7 +8,7 @@ import { CatPostEntity } from './models/post.entity';
   imports: [
     TypeOrmModule.forFeature([CatPostEntity])
   ],
+  controllers: [CatController],
   providers: [CatService],
-  controllers: [CatController]
 })
 export class CatsModule {}
