@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
 import { AppModule } from './../src/app.module';
-import { CatsModule } from 'src/cats/cats.module';
+import { AppService } from '../src/app.service';
 
 
 describe('AppController (e2e)', () => {
@@ -11,16 +11,32 @@ describe('AppController (e2e)', () => {
   beforeEach(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
-    }).compile();
+    })
+    .overrideProvider(AppService)
+    .useValue(AppService)
+    .compile();
 
     app = moduleFixture.createNestApplication();
     await app.init();
   });
 
-  it('/ (GET)', () => {
-    return request(app.getHttpServer())
-      .get('/')
+  it('/ (GET)', async() => {
+    const req = await request(app.getHttpServer())
+      .get('/api/v1/cat')
       .expect(200)
-      .expect('Hello World!');
+      
+  });
+
+  it('should be able to create a cat',  async() => {
+    const res =  await request(app)
+      .post('/api/v1/cat')
+      .send({ name:'mike', description: 'another cat'});
+    expect(res).toEqual({ id: expect.any(String), name: 'mike', description:'another cat', createdAt: expect.any(Date) });
+  });
+
+
+
+  afterAll(async () => {
+    await app.close();
   });
 });
