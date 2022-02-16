@@ -21,6 +21,7 @@ lerna-debug.log*
 
 # IDEs and editors
 *.env
+.env
 /.idea
 .project
 .classpath
