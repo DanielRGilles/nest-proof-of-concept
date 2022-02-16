@@ -16,23 +16,23 @@ export class CatController {
         return this.catService.findAll();
     }
     @Get(':id')
-    async getWithId(
+    async findOne(
         @Param('id') id: number,
         @Body() catPost : CatPost
     ) : Promise<Observable<CatPost>>  {
-        return this.catService.getByid(id);
+        return this.catService.findOne(id);
     }
     @Put(':id')
     async update(
         @Param('id') id: number, 
         @Body() catPost: CatPost
     ): Promise<Observable<UpdateResult>> {
-        return this.catService.updateCat(id, catPost)
+        return this.catService.update(id, catPost)
     }
     @Delete(':id')
     async delete(
         @Param('id') id: number,
     ): Promise<Observable<DeleteResult>> {
-        return this.catService.deleteCat(id);
+        return this.catService.delete(id);
     }
 }
