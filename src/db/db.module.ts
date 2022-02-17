@@ -9,11 +9,11 @@ import { Dogs } from 'src/dogs/models/post.entity';
         ConfigModule.forRoot({ isGlobal: true }),
         TypeOrmModule.forRoot({
             type: 'postgres',
-            host: process.env.HOST,
-            port: parseInt(<string>process.env.POSTGRES_PORT),
-            username: process.env.POSTGRES_USER,
-            password: process.env.POSTGRES_PASSWORD,
-            database: process.env.POSTGRES_DATABASE,
+            // host: process.env.HOST,
+            // port: parseInt(<string>process.env.POSTGRES_PORT),
+            // username: process.env.POSTGRES_USER,
+            // password: process.env.POSTGRES_PASSWORD,
+            // database: process.env.POSTGRES_DATABASE,
             autoLoadEntities: true,
             synchronize: true,
             entities: [Dogs, Cats]
