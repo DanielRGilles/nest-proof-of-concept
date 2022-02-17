@@ -2,14 +2,14 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { from, Observable } from 'rxjs';
 import { DeleteResult, Repository, UpdateResult } from 'typeorm';
-import { DogPostEntity } from '../models/post.entity';
+import { Dogs } from '../models/post.entity';
 import { DogPost } from '../models/post.interface';
 
 @Injectable()
 export class DogService {
     constructor(
-        @InjectRepository(DogPostEntity)
-        private readonly dogPostRepository: Repository<DogPostEntity>
+        @InjectRepository(Dogs)
+        private readonly dogPostRepository: Repository<Dogs>
     ) {}
 
     createPost(dogPost: DogPost) : Observable<DogPost> {

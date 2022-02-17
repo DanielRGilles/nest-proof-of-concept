@@ -31,5 +31,5 @@ jobs:
     - run: npm test
       env:
         CI: true
-        DATABASE_URL: postgres://alchemy:alchemy@postgres:5432/alchemy
+        DATABASE_URL: postgres://kghgvyfwamrfov:fed6824c5f0e8e1eae8784310c26559d1233fbe4a8c6cee94d6e36e39e6d8edd@ec2-54-225-203-79.compute-1.amazonaws.com:5432/dsaqn71vlv4ep
 
