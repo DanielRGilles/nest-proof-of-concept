@@ -10,6 +10,8 @@ exports.DbModule = void 0;
 const common_1 = require("@nestjs/common");
 const config_1 = require("@nestjs/config");
 const typeorm_1 = require("@nestjs/typeorm");
+const post_entity_1 = require("../cats/models/post.entity");
+const post_entity_2 = require("../dogs/models/post.entity");
 let DbModule = class DbModule {
 };
 DbModule = __decorate([
@@ -25,6 +27,7 @@ DbModule = __decorate([
                 database: process.env.POSTGRES_DATABASE,
                 autoLoadEntities: true,
                 synchronize: true,
+                entities: [post_entity_2.Dogs, post_entity_1.Cats]
             }),
         ],
     })

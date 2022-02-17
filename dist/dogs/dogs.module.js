@@ -17,7 +17,7 @@ let DogsModule = class DogsModule {
 DogsModule = __decorate([
     (0, common_1.Module)({
         imports: [
-            typeorm_1.TypeOrmModule.forFeature([post_entity_1.DogPostEntity])
+            typeorm_1.TypeOrmModule.forFeature([post_entity_1.Dogs])
         ],
         providers: [dog_service_1.DogService],
         controllers: [dog_controller_1.DogController]

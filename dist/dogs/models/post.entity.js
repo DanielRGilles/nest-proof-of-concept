@@ -9,28 +9,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DogPostEntity = void 0;
+exports.Dogs = void 0;
 const typeorm_1 = require("typeorm");
-let DogPostEntity = class DogPostEntity {
+let Dogs = class Dogs {
 };
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
     __metadata("design:type", Number)
-], DogPostEntity.prototype, "id", void 0);
+], Dogs.prototype, "id", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], DogPostEntity.prototype, "name", void 0);
+], Dogs.prototype, "name", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], DogPostEntity.prototype, "description", void 0);
+], Dogs.prototype, "description", void 0);
 __decorate([
     (0, typeorm_1.Column)({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' }),
     __metadata("design:type", Date)
-], DogPostEntity.prototype, "createdAt", void 0);
-DogPostEntity = __decorate([
-    (0, typeorm_1.Entity)('dogs')
-], DogPostEntity);
-exports.DogPostEntity = DogPostEntity;
+], Dogs.prototype, "createdAt", void 0);
+Dogs = __decorate([
+    (0, typeorm_1.Entity)()
+], Dogs);
+exports.Dogs = Dogs;
 //# sourceMappingURL=post.entity.js.map

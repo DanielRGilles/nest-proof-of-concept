@@ -17,7 +17,7 @@ let CatsModule = class CatsModule {
 CatsModule = __decorate([
     (0, common_1.Module)({
         imports: [
-            typeorm_1.TypeOrmModule.forFeature([post_entity_1.CatPostEntity])
+            typeorm_1.TypeOrmModule.forFeature([post_entity_1.Cats])
         ],
         providers: [cat_service_1.CatService],
         controllers: [cat_controller_1.CatController]

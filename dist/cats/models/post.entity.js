@@ -9,28 +9,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CatPostEntity = void 0;
+exports.Cats = void 0;
 const typeorm_1 = require("typeorm");
-let CatPostEntity = class CatPostEntity {
+let Cats = class Cats {
 };
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
     __metadata("design:type", Number)
-], CatPostEntity.prototype, "id", void 0);
+], Cats.prototype, "id", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], CatPostEntity.prototype, "name", void 0);
+], Cats.prototype, "name", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], CatPostEntity.prototype, "description", void 0);
+], Cats.prototype, "description", void 0);
 __decorate([
     (0, typeorm_1.Column)({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' }),
     __metadata("design:type", Date)
-], CatPostEntity.prototype, "createdAt", void 0);
-CatPostEntity = __decorate([
-    (0, typeorm_1.Entity)('cats')
-], CatPostEntity);
-exports.CatPostEntity = CatPostEntity;
+], Cats.prototype, "createdAt", void 0);
+Cats = __decorate([
+    (0, typeorm_1.Entity)()
+], Cats);
+exports.Cats = Cats;
 //# sourceMappingURL=post.entity.js.map

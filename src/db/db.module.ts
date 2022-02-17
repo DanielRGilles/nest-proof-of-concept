@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Cats } from 'src/cats/models/post.entity';
+import { Dogs } from 'src/dogs/models/post.entity';
 
 @Module({
     imports: [
@@ -14,6 +16,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
             database: process.env.POSTGRES_DATABASE,
             autoLoadEntities: true,
             synchronize: true,
+            entities: [Dogs, Cats]
 
         }),
     ],
