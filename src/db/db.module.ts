@@ -16,7 +16,7 @@ import { Dogs } from 'src/dogs/models/post.entity';
       database: process.env.POSTGRES_DATABASE,
       autoLoadEntities: true,
       synchronize: false,
-      entities: [Dogs, Cats],
+      entities: ['dist/**/*.entity.js'],
     }),
   ],
 })
