@@ -1,3 +1,4 @@
+
 export interface CatPost {
     id?: number;
     name?: string;
