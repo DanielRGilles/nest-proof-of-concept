@@ -40,7 +40,7 @@ let DogService = class DogService {
 };
 DogService = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, typeorm_1.InjectRepository)(post_entity_1.DogPostEntity)),
+    __param(0, (0, typeorm_1.InjectRepository)(post_entity_1.Dogs)),
     __metadata("design:paramtypes", [typeorm_2.Repository])
 ], DogService);
 exports.DogService = DogService;

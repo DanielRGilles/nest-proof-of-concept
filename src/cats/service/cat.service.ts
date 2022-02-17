@@ -2,14 +2,14 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { from, Observable } from 'rxjs';
 import { DeleteResult, Repository, UpdateResult } from 'typeorm';
-import { CatPostEntity } from '../models/post.entity';
+import { Cats } from '../models/post.entity';
 import { CatPost } from '../models/post.interface';
 
 @Injectable()
 export class CatService {
     constructor(
-        @InjectRepository(CatPostEntity)
-        private readonly catPostRepository: Repository<CatPostEntity>
+        @InjectRepository(Cats)
+        private readonly catPostRepository: Repository<Cats>
     ) {}
 
     create(catPost: CatPost) : Observable<CatPost> {

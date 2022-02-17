@@ -1,4 +1,4 @@
-export declare class CatPostEntity {
+export declare class Cats {
     id: number;
     name: string;
     description: string;
