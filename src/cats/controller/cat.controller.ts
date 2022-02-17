@@ -8,31 +8,31 @@ import { CatService } from '../service/cat.service';
 export class CatController {
     constructor(private catService: CatService) {}
     @Post()
-    async insert( @Body() catPost: CatPost): Promise<Observable<CatPost>> {
-        return this.catService.createPost(catPost)
+    async create( @Body() catPost: CatPost): Promise<Observable<CatPost>> {
+        return this.catService.create(catPost)
     }
     @Get()
-    async getEm() : Promise<Observable<CatPost[]>>  {
-        return this.catService.getAll();
+    async findAll() : Promise<Observable<CatPost[]>>  {
+        return this.catService.findAll();
     }
     @Get(':id')
-    async getWithId(
+    async findOne(
         @Param('id') id: number,
         @Body() catPost : CatPost
     ) : Promise<Observable<CatPost>>  {
-        return this.catService.getByid(id);
+        return this.catService.findOne(id);
     }
     @Put(':id')
     async update(
         @Param('id') id: number, 
         @Body() catPost: CatPost
     ): Promise<Observable<UpdateResult>> {
-        return this.catService.updateCat(id, catPost)
+        return this.catService.update(id, catPost)
     }
     @Delete(':id')
     async delete(
         @Param('id') id: number,
     ): Promise<Observable<DeleteResult>> {
-        return this.catService.deleteCat(id);
+        return this.catService.delete(id);
     }
 }
