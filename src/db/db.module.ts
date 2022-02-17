@@ -14,7 +14,10 @@ import { Dogs } from 'src/dogs/models/post.entity';
             // database: process.env.POSTGRES_DATABASE,
             autoLoadEntities: true,
             synchronize: true,
-            entities: [Dogs, Cats]
+            entities: [Dogs, Cats],
+            ssl:{
+                rejectUnauthorized: false,
+            }
 
         }),
     ],
