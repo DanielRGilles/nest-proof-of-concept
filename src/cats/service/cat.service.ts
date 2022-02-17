@@ -12,19 +12,19 @@ export class CatService {
         private readonly catPostRepository: Repository<CatPostEntity>
     ) {}
 
-    createPost(catPost: CatPost) : Observable<CatPost> {
+    create(catPost: CatPost) : Observable<CatPost> {
         return from(this.catPostRepository.save(catPost));
     }
-    getByid(id: number):Observable<CatPost> {
+    findOne(id: number):Observable<CatPost> {
         return from(this.catPostRepository.findOne(id));
     }
-    getAll(): Observable<CatPost[]> {
+    findAll(): Observable<CatPost[]> {
         return from(this.catPostRepository.find());
     }
-    updateCat(id: number, catPost: CatPost): Observable<UpdateResult> {
+    update(id: number, catPost: CatPost): Observable<UpdateResult> {
         return from(this.catPostRepository.update(id, catPost));
     }
-    deleteCat(id: number): Observable<DeleteResult> {
+    delete(id: number): Observable<DeleteResult> {
         return from(this.catPostRepository.delete(id));
     }
 }

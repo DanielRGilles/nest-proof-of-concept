@@ -20,14 +20,10 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  it('/ (GET)', () => {
-    const req = request(app.getHttpServer())
-      .get('/api/v1/cat')
+  it.skip('/ (GET)', () => {
+    return request(app.getHttpServer())
+      .get('/')
       .expect(200)
-      
-  });
-
-  afterAll(async () => {
-    await app.close();
+      .expect('anything');
   });
 });
