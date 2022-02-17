@@ -5,7 +5,7 @@ const host = process.env.HOST || '127.0.0.1';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.setGlobalPrefix('api/v1');
+  app.setGlobalPrefix('/api/v1');
   await app.listen(port, host);
 }
 bootstrap();
