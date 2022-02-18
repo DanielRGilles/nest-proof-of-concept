@@ -1,78 +1,78 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { CatService } from '../service/cat.service';
-import { CatController } from './cat.controller';
+import { DogService } from '../service/dog.service';
+import { DogController } from './dog.controller';
 
-describe('CatController', () => {
-  let controller: CatController;
+describe('DogController', () => {
+  let controller: DogController;
 
-  const mockCatService = {
-    create: jest.fn((catPost) => {
+  const mockDogService = {
+    create: jest.fn((dogPost) => {
       return {
         id: 1,
-        name: 'kitty',
+        name: 'doggy',
         description: 'fluffy',
         createdAt: '2019-10-31T12:34',
       };
     }),
-    findAll: jest.fn((catPost) => {
+    findAll: jest.fn((dogPost) => {
       return [
         {
           id: 1,
-          name: 'kitty',
+          name: 'doggy',
           description: 'fluffy',
           createdAt: '2019-10-31T12:34',
         },
         {
           id: 2,
-          name: 'skitty',
+          name: 'sdoggy',
           description: 'fruffy',
           createdAt: '2018-10-31T12:34',
         },
       ];
     }),
-    findOne: jest.fn((catPost) => {
+    findOne: jest.fn((dogPost) => {
       return {
         id: 1,
-        name: 'kitty',
+        name: 'doggy',
         description: 'fluffy',
         createdAt: '2019-10-31T12:34',
       };
     }),
-    update: jest.fn((catPost) => {
+    update: jest.fn((dogPost) => {
       return {
         id: 1,
-        name: 'Mr. Kitty',
+        name: 'Mr. doggy',
         description: 'fluffy',
         createdAt: '2019-10-31T12:34',
       };
     }),
-    delete: jest.fn((catPost) => {
+    delete: jest.fn((dogPost) => {
       return {
         id: 2,
-        name: 'skitty',
+        name: 'sdoggy',
         description: 'fruffy',
         createdAt: '2018-10-31T12:34',
       };
     }),
   };
 
-  const mockKitty = {
+  const mockdoggy = {
     id: 1,
-    name: 'kitty',
+    name: 'doggy',
     description: 'fluffy',
     createdAt: '2019-10-31T12:34',
   };
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [CatController],
-      providers: [CatService],
+      controllers: [DogController],
+      providers: [DogService],
     })
-      .overrideProvider(CatService)
-      .useValue(mockCatService)
+      .overrideProvider(DogService)
+      .useValue(mockDogService)
       .compile();
 
-    controller = module.get<CatController>(CatController);
+    controller = module.get<DogController>(DogController);
   });
 
   describe('root', () => {
@@ -81,9 +81,9 @@ describe('CatController', () => {
     });
 
     it('create a cat', async () => {
-      expect(await controller.create({ name: 'kitty' })).toEqual({
+      expect(await controller.create({ name: 'doggy' })).toEqual({
         id: expect.any(Number),
-        name: 'kitty',
+        name: 'doggy',
         description: 'fluffy',
         createdAt: expect.any(String),
       });
@@ -94,13 +94,13 @@ describe('CatController', () => {
         expect.arrayContaining([
           {
             id: expect.any(Number),
-            name: 'kitty',
+            name: 'doggy',
             description: 'fluffy',
             createdAt: expect.any(String),
           },
           {
             id: 2,
-            name: 'skitty',
+            name: 'sdoggy',
             description: 'fruffy',
             createdAt: '2018-10-31T12:34',
           },
@@ -109,18 +109,18 @@ describe('CatController', () => {
     });
 
     it('gets one cat', async () => {
-      expect(await controller.findOne(1, { name: 'kitty' })).toEqual({
+      expect(await controller.findOne(1, { name: 'doggy' })).toEqual({
         id: expect.any(Number),
-        name: 'kitty',
+        name: 'doggy',
         description: 'fluffy',
         createdAt: expect.any(String),
       });
     });
 
     it('updates one cat', async () => {
-      expect(await controller.update(1, { name: 'Mr. Kitty' })).toEqual({
+      expect(await controller.update(1, { name: 'Mr. doggy' })).toEqual({
         id: expect.any(Number),
-        name: 'Mr. Kitty',
+        name: 'Mr. doggy',
         description: 'fluffy',
         createdAt: expect.any(String),
       });
@@ -129,7 +129,7 @@ describe('CatController', () => {
     it('deletes one cat', async () => {
       expect(await controller.delete(1)).toEqual({
         id: 2,
-        name: 'skitty',
+        name: 'sdoggy',
         description: 'fruffy',
         createdAt: '2018-10-31T12:34',
       });
